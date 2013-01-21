@@ -1,3 +1,10 @@
-.idea
+build/*
+.coverage
+*.DS_Store
 *.pyc
-*~
+*.egg/
+.tox/
+.venv/
+.idea/
+*.sublime-project
+*.sublime-workspace
