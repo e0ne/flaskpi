@@ -1,0 +1,8 @@
+<uwsgi>
+    <socket>/tmp/app.sock</socket>
+    <pythonpath>/home/web/app</pythonpath>
+    <module>app:app</module>
+    <plugins>python27</plugins>
+    <virtualenv>/home/web/app/.venv/</virtualenv>
+</uwsgi>
+
