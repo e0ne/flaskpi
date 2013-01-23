@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 
-project_name = "yourprojectname"
+project_name = "flaskpi"
 
 
 class Config(object):
@@ -20,7 +20,7 @@ class Config(object):
     SQLALCHEMY_ECHO = False
 
     CSRF_ENABLED = True
-    SECRET_KEY = "secret"  # import os; os.urandom(24)
+    SECRET_KEY = "be98618b-9825-4681-8750-8d8e8db9d697"
     LOGGER_NAME = "%s_log" % project_name
     PERMANENT_SESSION_LIFETIME = timedelta(days=1)
 
@@ -37,7 +37,7 @@ class Config(object):
     # ex: BLUEPRINTS = ['blog.views.app']  # where app is a Blueprint instance
     # ex: BLUEPRINTS = [('blog.views.app', {'url_prefix': '/myblog'})]
     # where app is a Blueprint instance
-    BLUEPRINTS = []
+    BLUEPRINTS = ['flaskpi.views.app']
 
 
 class Dev(Config):
@@ -52,9 +52,10 @@ class Testing(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:////tmp/%s_test.sqlite" % project_name
     SQLALCHEMY_ECHO = False
 
+
 class Staging(Config):
     pass
 
+
 class Production(Config):
     pass
-
