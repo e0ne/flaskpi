@@ -4,5 +4,10 @@ app = Blueprint('website', __name__, template_folder='templates')
 
 
 @app.route("/")
-def index_view():
+def index():
     return render_template('index.html')
+
+
+@app.route("/tutorials")
+def tutorials():
+    return render_template('tutorials.html')
