@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    var desiredMenuItem = 'home' || document.location.hash.replace("#", "");
+    var desiredMenuItem = document.location.hash.replace("#", "") || 'home';
     $(".nav a[rel=" + desiredMenuItem + "]").parent().addClass("active");
 })
