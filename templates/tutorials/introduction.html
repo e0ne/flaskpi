@@ -1,25 +1,4 @@
-{% extends "base.html" %}
+{% extends "turorials/base.html" %}
 {% block body %}
-
-  <div>
-      <h2>Introduction</h2>
-
-      <div class="row-fluid">
-        <p>
-          <img src="http://www.raspberrypi.org/wp-content/uploads/2011/07/7513051848_9a6ef2feb8_o-1024x682.jpg"/>
-        <p>
-        <p>
-          The most of the software are developes as web services or SaaS product. So web development is very popular now. I didn't find any tutorial wich describes web development from the first line of code to deployment to the server. So I decided to create one.
-        </p>
-        <p>
-          I'm learning Flask now and want to share my knowledge with everybody. I hope, this project will be a good tutorial and web-site development process example.
-        </p>
-        <p>
-          Raspberry Pi is very compact and pretty cheap computer. Of course, you can use some virtual machine to learn but VMs isn't so portable as Raspbery Pi. You can you your Raspberry Pi as a simple home server. It will be quiet (no coolers or mechanic parts), energy saving server. And you don't need to get powered on a big PC.
-        </p>
-        <p>
-          This version of the  <a href="http://raspberypi.com">raspberypi.com</a> is only prototype of the real website (look to the '<a href="https://github.com/e0ne/flaskpi/tree/prototype">prototype</a>' branch on GitHub). Step-by-step I'll create new features and share sources and tutorial with you. You are welcome to contribute code, tutorials or fixes to me. Just fork this project on GitHub and create Pull Request.
-        </p>
-      </div>
-  </div>
+  {% include "tutorials/intro_body.html %}
 {% endblock %}

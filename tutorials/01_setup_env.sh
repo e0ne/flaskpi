@@ -1,0 +1,1 @@
+sudo apt-get install mc vim-nox python-virtualenv nginx uwsgi uwsgi-plugin-python
