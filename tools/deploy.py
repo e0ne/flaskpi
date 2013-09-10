@@ -1,9 +1,9 @@
 from fabric.api import *
 from fabric.operations import run, put
 
-env.hosts = ['e0ne@flaskpi.com']
+env.hosts = ['flaskpi.com']
 env.port = 22
-env.user = 'jenkins'
+env.user = 'e0ne'
 # env.password = '12345678'
 
 WEB_USER = 'www-data'
