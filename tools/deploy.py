@@ -14,4 +14,7 @@ SRC_DIR = '/home/e0ne/web/flaskpi'
 
 @task
 def deploy(src):
-    put(src, SRC_DIR)
+    content = ['etc', 'flaskpi', 'static', 'templates',
+               'tools', 'tutorials', '*.py']
+    for item in content:
+        put('{0}/{1}'.format(src, item), SRC_DIR)
