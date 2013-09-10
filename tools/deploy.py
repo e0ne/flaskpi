@@ -1,5 +1,5 @@
 from fabric.api import *
-
+from fabric.operations import run, put
 
 env.hosts = ['flaskpi.com']
 env.port = 21
@@ -9,9 +9,9 @@ env.user = 'e0ne'
 WEB_USER = 'www-data'
 WEB_GROUP = 'www-data'
 
-SRC_DIR = '/var/www/flaskpi.com'
+SRC_DIR = '/home/e0ne/web/flaskpi'
 
 
 @task
-def deploy():
-    pass
+def deploy(src):
+    put(src, SRC_DIR)
