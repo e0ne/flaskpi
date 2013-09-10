@@ -3,7 +3,7 @@ from fabric.api import *
 
 env.hosts = ['flaskpi.com']
 env.port = 21
-# env.user = 'dev_user'
+env.user = 'e0ne'
 # env.password = '12345678'
 
 WEB_USER = 'www-data'
