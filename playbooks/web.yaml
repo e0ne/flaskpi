@@ -1,5 +1,5 @@
 ---
-- hosts: webservers
+- hosts: flaskpi
   remote_user: e0ne
   become: yes
   become_method: sudo
