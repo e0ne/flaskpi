@@ -1,0 +1,45 @@
+---
+- hosts: webservers
+  remote_user: e0ne
+  become: yes
+  become_method: sudo
+  vars:
+    project_name: flaskpi
+    github_user: e0ne
+    work_dir: /srv/{{ project_name }}
+  tasks:
+    - name: Intalling packages
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - git
+        - python-pip
+    - name: Clone repo
+      git:
+        repo: https://github.com/{{ github_user }}/{{ project_name }}.git
+        dest: "{{ work_dir }}"
+        update: yes
+        force: yes
+  roles:
+    - role: jdauphant.nginx
+      nginx_sites:
+        flaskpi:
+          - listen 8000
+          - server_name localhost
+          - location / {
+              uwsgi_pass {{ project_name }};
+              include uwsgi_params;
+            }
+          - location /static/ {
+              root {{ work_dir }};
+            }
+      nginx_configs:
+        upstream:
+          - upstream {{ project_name }} {
+              server unix:/tmp/{{ project_name }}.sock;
+            }
+    - role: uwsgi
+      python_path: "{{ work_dir }}"
+      requirements_path: "tools/requirements.txt"
+      python_module: "app:app"
+      virtual_env_path: "{{ work_dir }}/.venv"
+

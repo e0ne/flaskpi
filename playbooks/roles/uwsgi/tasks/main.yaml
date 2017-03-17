@@ -1,0 +1,21 @@
+---
+- name: install uwsgi
+  apt: name=uwsgi
+- name: uwsgi-plugin-python
+  apt: name=uwsgi-plugin-python
+- name: Create uWSGI config file
+  template: src=uwsgi.j2 dest=/etc/uwsgi/apps-available/{{ project_name }}.xml
+- name: Enable uWSGI app
+  file:
+    src: /etc/uwsgi/apps-available/{{ project_name }}.xml
+    dest: /etc/uwsgi/apps-enabled/{{ project_name }}.xml
+    state: link
+- name: venv
+  pip:
+    requirements: "{{ work_dir }}/{{ requirements_path }}"
+    virtualenv: "{{ virtual_env_path }}"
+- name: Restart uWSGI
+  service:
+    name: uwsgi
+    state: restarted
+

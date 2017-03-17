@@ -1,0 +1,4 @@
+---
+project_name: flaskpi
+github_user: e0ne
+work_dir: /srv/{{ project_name }}

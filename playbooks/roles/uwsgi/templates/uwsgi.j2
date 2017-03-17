@@ -1,0 +1,8 @@
+<uwsgi>
+    <socket>/tmp/{{ project_name }}.sock</socket>
+    <pythonpath>{{ python_path }}</pythonpath>
+    <module>{{ python_module }}</module>
+    <plugins>python27</plugins>
+    <virtualenv>{{ virtual_env_path  }}</virtualenv>
+    <logto>/var/log/uwsgi/uwsgi.log</logto>
+</uwsgi>
